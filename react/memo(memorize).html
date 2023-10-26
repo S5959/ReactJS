@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html> 
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.23.2/babel.min.js"></script>
+<script type="text/babel">
+    function Btn({ text, onClick }) {
+        console.log(text, " was rendered")
+        return (
+            <button
+                onClick={onClick}
+                style={{
+                    backgroundColor: "tomato",
+                    color: "white",
+                    padding: "10px 20px",
+                    border: 0,
+                    borderRadius: 10,
+                    fontSize: 16
+                }}
+            >
+                {text}
+            </button>
+        );
+    }
+    // props가 바뀌지 않는다면 re-render 하지 말아줘 : React Memo(memorize)
+    // Continue 버튼은 변하지 않는데 계속 부모 컴포넌트가 변할 때마다 새로 그려짐(re-render). 따라서 props가 변화없다면 버튼은 다시 그리지 않도록 설정
+    const MemorizedBtn = React.memo(Btn);
+    function App() {           // 부모(App 컴포넌트)를 바꾸면 아래 자식(Btn 컴포넌트)들 모두 re-render
+        const [value, setValue] = React.useState("Save Changes");
+        const changeValue = () => setValue("Revert Changes");
+        // 기존: 위처럼 값이 변하면 아래의 모든 내용이 re-render. 
+        // 변화: Memorized를 사용하여 변화된 부분만 re-render.
+        return (
+            <div>
+                <MemorizedBtn text={value} onClick={changeValue} />
+                <MemorizedBtn text="Continue" />
+            </div>
+        );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root); 
+</script>
+</html>
