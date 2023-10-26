@@ -21,8 +21,9 @@
         };
         return (
             <div>
+                <h3>Minutes 2 Hours</h3>
                 <div>
-                    <label htmlFor="">Minutes</label>
+                    <label htmlFor="minutes">Minutes</label>
                     <input 
                         value={inverted ? amount * 60 : amount} 
                         id="minutes" 
@@ -49,8 +50,44 @@
         );
     }
     function KmToMiles() {
+        const [value, setValue] = React.useState(0);
+        const [inverted, setInverted] = React.useState(false);
+        const onChange = (event) => {
+            setValue(event.target.value);
+        }
+        const reset = () => setValue(0);
+        const onInvert = () => {
+            reset();
+            setInverted((current) => !current);
+        }
         return (
-            <h3>Km 2 M</h3>
+            <div>
+                <h3>Km 2 Miles</h3>
+                <div>
+                    <label htmlFor="km">Kilometers</label>
+                    <input 
+                        value={inverted ? value * 1.609344 : value}
+                        id="km"
+                        type="number"
+                        placeholder="Kilometers"
+                        onChange={onChange}
+                        disabled={inverted}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="miles">Miles</label>
+                    <input 
+                        value={inverted ? value : value / 1.609344}
+                        id="miles"
+                        type="number"
+                        placeholder="Miles"
+                        onChange={onChange}
+                        disabled={!inverted}
+                    />
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn Back" : "Invert"}</button>
+            </div>
         );
     }
     function App() {
@@ -58,7 +95,6 @@
         const onSelect = (event) => {
             setIndex(event.target.value);
         }
-        console.log("render w/", index);
         return (
             <div>
                 <h1>Super Converter</h1>
