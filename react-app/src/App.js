@@ -17,11 +17,6 @@ function App() {
   useEffect(() => {
     console.log("I run when keyword & counter changes.");
   }, [keyword, counter]);
-  useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) {
-      console.log("SEARCH FOR ", keyword);
-    }
-  }, [keyword]);
   return (
     <div>
       <input
