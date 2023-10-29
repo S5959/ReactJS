@@ -10,12 +10,13 @@ function App() {
       return;
     }
     setToDo("");
-    setToDos(currentArray => []);
+    setToDos(currentArray => [toDo, ...currentArray]);
     // toDos.push(); // state를 직접 수정하지 않음. 'toDo = ""' 또한 마찬가지.
   };
   console.log(toDos);
   return (
     <div>
+      <h1>My To Dos ({toDos.length})</h1>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
