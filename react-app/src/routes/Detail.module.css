@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.movie {
+    width: 80%;
+}
+
+.movie_bg_img {
+    width: 100%;
+    margin: 0;
+}
+
+.movie_header {
+    margin-top: 112px;
+    display: flex;
+    justify-items: start;
+}
+
+.movie_img {
+    margin-right: 24px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 4px;
+    width: 150px
+}
+
+.movie_title {
+    display: flex;
+    word-break: keep-all;
+    width: 100%;
+}
+
+.movie_info {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.movie_info span:not(:last-child)::after {
+    content: " • ";
+}
+
+.movie_evaluation {
+    margin-top: 20px;
+}
+
+.movie_category {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.movie_category li {
+    margin-right: 8px;
+    float: left;
+}
+.movie_category li::before {
+    content: "#";
+    font-weight: 500;
+}
