@@ -8,8 +8,8 @@ function Movie({ id, coverImage, title, year, summary, genres }) {
             <h2>
                 <Link to={`/movie/${id}`}>{title}</Link>
             </h2>
-            <p>{year}</p>
-            <p>{summary}</p>
+            <p>{year}년</p>
+            <p>{summary}</p> 
             <ul>
                 {genres.map((g) => (
                 <li key={g}>{g}</li>

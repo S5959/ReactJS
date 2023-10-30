@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './Detail.module.css';
+import MovieDetail from '../components/MovieDetail';
 
 function Detail() {
    const { id } = useParams();
@@ -16,34 +16,26 @@ function Detail() {
       getMovie();
    }, []);
    return (
-      <div className={styles.container}>
-         {loading ? null : (
-            <div className={styles.movie}>
-               <img src={movie.background_image} className={styles.movie_bg_img} />
-               <div className={styles.movie_header}>
-                  <img src={movie.medium_cover_image} className={styles.movie_img} />
-                  <div>
-                     <h2 className={styles.movie_title}>{movie.title}</h2>
-                     <div className={styles.movie_info}>
-                        <span>{movie.year}년</span>
-                        <span>{movie.runtime}분</span>
-                        <span>{movie.language.toUpperCase()}</span>
-                     </div>
-                     <div className={styles.movie_evaluation}>
-                        <span>평점 : {movie.rating} </span>
-                     </div>
-                     <ul className={styles.movie_category}>
-                        {movie.genres.map((g) => (
-                           <li key={g}>{g}</li>
-                        ))}
-                     </ul>
-                  </div>
-               </div>
-               <div>
-                  <p>{movie.description_full}</p>
-               </div>
-            </div>
-         )}
+      <div 
+        style={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: '100%'
+        }}
+    >
+        {loading ? null : (
+            <MovieDetail 
+                bgImage={movie.background_image}
+                coverImage={movie.medium_cover_image}
+                title={movie.title}
+                year={movie.year}
+                runtime={movie.runtime}
+                language={movie.language}
+                rating={movie.rating}
+                genres={movie.genres}
+                desc={movie.description_full}
+            />
+        )}
       </div>
    );
 }
