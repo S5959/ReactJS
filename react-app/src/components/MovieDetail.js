@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from './Detail.module.css';
+import styles from '../routes/Detail.module.css';
 
 function MovieDetail({ bgImage, coverImage, title, year, runtime, language, rating, genres, desc }) {
     return (
@@ -39,7 +39,7 @@ MovieDetail.propTypes = {
     runtime: PropTypes.number.isRequired,
     language: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-    genres: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
     desc: PropTypes.string.isRequired
 }
 export default MovieDetail;
