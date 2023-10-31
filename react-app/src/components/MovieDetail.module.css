@@ -1,0 +1,135 @@
+.movie {
+    width: 80%;
+}
+
+.movie__bg_img {
+    width: 100%;
+    margin: 0;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-items: start;
+    margin-top: 112px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.box_contents {
+    width: 100%;
+    margin: 0 30px;
+}
+
+.movie__img {
+    position: relative;
+    top: -50px;
+    max-width: 160px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+.movie__title {
+    margin: 0;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.movie__title a {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #2c2c2c;
+    text-decoration: none;
+}
+
+.movie__year {
+    font-size: 14px;
+}
+
+.movie__score {
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 40px;
+    border-top: 1px solid #d9d6c8;
+}
+
+.movie__score span {
+    display: inline-block;
+    margin-top: 15px;
+}
+.movie__score span:not(:last-child)::after {
+    content: "|";
+    color: #d9d6c8;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 10px;
+}
+
+.movie__score span strong {
+    padding-left: 4px;
+    font-weight: 400;
+}
+
+.movie__download {
+    display: block;
+    float: right;
+    margin-top: 34px;
+    width: 108px;
+    height: 33px;
+    border: 1px solid #222;
+    border-radius: 4px;
+    color: #222;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: center;
+}
+
+.movie__download:hover {
+    cursor: pointer;
+    background-color: rgba(240, 230, 140, 0.25);
+}
+
+.movie__genres {
+    position: absolute;
+    bottom: 20px;
+    left: 210px;
+    display: block;
+    list-style: none;
+    margin: 0;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.movie__genres li {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    float: left;
+}
+
+.movie__genres li::before {
+    content: "#";
+    font-size: 13px;
+    margin-right: 1px;
+}
+
+.movie__desc {
+    line-height: 1.6;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 40px;
+    margin-bottom: 10%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+      0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
