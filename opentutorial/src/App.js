@@ -83,10 +83,26 @@ function App() {
     {id: 3, title: 'javascript', body: 'javascript is...'},
   ]);
   let content = null;
-  let contextControl = <li><a href={'/update'+id} onClick={event=> {
-    event.preventDefault();
-    setMode('UPDATE');
-  }}>Update</a></li>;
+  let contextControl = <>
+    <li>
+      <a href={'/update'+id} onClick={event=> {
+        event.preventDefault();
+        setMode('UPDATE');
+      }}>Update</a>
+    </li>
+    <li>
+      <input type="button" value="Delete" onClick={()=>{
+        const newTopics = []
+        for(let i=0; i<topics.length; i++) {
+          if(topics[i].id !== id) {
+            newTopics.push(topics[i]);
+          }
+        }
+        setTopics(newTopics);
+        setMode('WELCOME')
+      }} />
+    </li>
+  </>;
   if(mode === 'WELCOME') {
     content = <Article title="Welcome" body="Hello, Welcome"></Article>;
   } else if(mode === 'READ') {
